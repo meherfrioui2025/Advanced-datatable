@@ -17,14 +17,17 @@ const Hero: React.FC = () => {
             documentation, and implementation guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button
-              variant="primary"
-              className="flex items-center"
-            >
+            <Button variant="primary" className="flex items-center">
               <span className="mdi mdi-rocket" />
               <span>Explore Features</span>
             </Button>
-            <Button variant="secondary" className="flex items-center">
+            <Button
+              onClick={() =>
+                window.open(import.meta.env.VITE_GITHUB_LINK, "_blank")
+              }
+              variant="secondary"
+              className="flex items-center"
+            >
               <span className="mdi mdi-github-circle" />
               <span>View Source</span>
             </Button>
