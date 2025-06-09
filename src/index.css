@@ -8,9 +8,24 @@
     margin: 0;
     box-sizing: border-box;
   }
-}
 
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(222, 84%, 4.9%) 0%,
+      hsl(217, 32%, 17%) 50%,
+      hsl(222, 84%, 4.9%) 100%
+    );
+  }
 
-:root {
-  --secondary: hsl(210, 40%, 96%);
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(217, 91%, 60%) 0%,
+      hsl(173, 58%, 39%) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }

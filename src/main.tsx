@@ -1,10 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.tsx";
-
 import { createBrowserRouter, RouterProvider } from "react-router";
+
+import App from "./pages/App.tsx";
 import Layout from "./layout/layout.tsx";
+import NotFoundPage from "./pages/not-found.tsx";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,10 @@ const router = createBrowserRouter([
         element: <App />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 
