@@ -4,11 +4,17 @@ import "./index.css";
 import App from "./App.tsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router";
+import Layout from "./layout/layout.tsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+    ],
   },
 ]);
 

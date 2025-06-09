@@ -9,3 +9,8 @@
     box-sizing: border-box;
   }
 }
+
+
+:root {
+  --secondary: hsl(210, 40%, 96%);
+}
