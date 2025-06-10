@@ -1,12 +1,13 @@
 import Hero from "../components/hero";
+import SearchAndFilterBar from "../components/search-filter-bar";
 
 const App = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       <Hero />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2">
-        hello World!
-      </div>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <SearchAndFilterBar />
+      </main>
     </div>
   );
 };
