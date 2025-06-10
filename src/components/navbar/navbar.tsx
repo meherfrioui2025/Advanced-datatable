@@ -1,4 +1,7 @@
 import React from "react";
+
+import Button from "../button";
+import Badge from "../badge";
 import { Link } from "react-router";
 
 const navLinks = [
@@ -9,52 +12,35 @@ const navLinks = [
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-white shadow-sm">
-      <nav
-        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4"
-        aria-label="Main navigation"
-      >
-        <div className="flex gap-5 items-center">
-          <Link
-            to="/"
-            className="flex items-center space-x-2"
-            aria-label="Homepage"
-          >
-            <div className="h-8 w-8 bg-blue-600 rounded-md flex items-center justify-center text-white font-bold">
-              <span>D</span>
+    <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <span className="mdi mdi-table text-blue-500 text-2xl" />
+              <h1 className="text-xl font-bold text-slate-900">
+                DataTable Pro
+              </h1>
             </div>
-            <span className="text-xl font-semibold text-gray-900">
-              DataTable Pro
-            </span>
-          </Link>
-          <span className="bg-gray-200 rounded-full px-2 border border-gray-200 text-sm">
-            50+ Features
-          </span>
-        </div>
-
-        <ul
-          className="hidden md:flex space-x-6 text-sm font-medium text-gray-700 items-center"
-          role="menubar"
-        >
-          {navLinks.map((link) => (
-            <li key={link.path} role="none">
+            <Badge variant="outline" className="hidden sm:inline-flex">
+              50+ Features
+            </Badge>
+          </div>
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((item) => (
               <Link
-                to={link.path}
-                role="menuitem"
-                className="hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+                to={item.path}
+                key={item.title}
+                className="text-slate-700 hover:text-blue-500 font-medium transition-colors"
               >
-                {link.title}
+                {item.title}
               </Link>
-            </li>
-          ))}
-          <Link
-            to="/get-started"
-            className="bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Get Started
-          </Link>
-        </ul>
-      </nav>
+            ))}
+
+            <Button variant="primary" className="bg-blue-500">Get Started</Button>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 };

@@ -7,9 +7,9 @@ export default function NotFoundPage() {
         <h1 className="text-4xl font-bold text-red-500 ">
           404 - Page Not Found
         </h1>
-        <p>Oops! The page you’re looking for doesn't exist.</p>
+        <p>Oops! The page you're looking for doesn't exist.</p>
         <p className="self-center italic font-semibold">
-          You can go back to the {" "}
+          You can go back to the{" "}
           <Link to="/" className=" text-blue-400">
             Home Page
           </Link>{" "}
