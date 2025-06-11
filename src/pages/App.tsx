@@ -5,6 +5,7 @@ import SearchAndFilterBar from "../components/search-filter-bar";
 
 import features from "../services/features";
 import { matchesCategoryCriteria, matchesSearchCriteria } from "../lib";
+import Stats from "../components/stats";
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -27,6 +28,7 @@ const App = () => {
           setSelectedCategory={setSelectedCategory}
         />
         <Features filteredFeatures={filteredFeatures} />
+        <Stats/>
       </main>
     </div>
   );
