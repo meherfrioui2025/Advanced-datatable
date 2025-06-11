@@ -4,21 +4,18 @@ import Hero from "../components/hero";
 import SearchAndFilterBar from "../components/search-filter-bar";
 
 import features from "../services/features";
+import { matchesCategoryCriteria, matchesSearchCriteria } from "../lib";
 
 const App = () => {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const filteredFeatures = features.filter((feature) => {
-    const matchesSearch =
-      feature.title.toLowerCase().includes(search.toLowerCase()) ||
-      feature.description.toLowerCase().includes(search.toLowerCase());
-    const matchesCategory =
-      selectedCategory === "all" || feature.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const filteredFeatures = features.filter(
+    (feature) =>
+      matchesSearchCriteria(feature, search) &&
+      matchesCategoryCriteria(feature, selectedCategory)
+  );
 
-  
   return (
     <div className="min-h-screen bg-slate-50">
       <Hero />
