@@ -17,8 +17,8 @@ const App = () => {
       selectedCategory === "all" || feature.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-console.log("Search",search)
-console.log("selectedCategory",selectedCategory)
+
+  
   return (
     <div className="min-h-screen bg-slate-50">
       <Hero />
