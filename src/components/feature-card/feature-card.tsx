@@ -1,3 +1,4 @@
+import type { FC } from "react";
 import Badge from "../badge";
 import { Card, CardContent } from "../card/card";
 
@@ -8,14 +9,14 @@ export interface Feature {
   category: string;
   complexity: string;
   color: string;
-  icon?:string
+  icon?: string;
 }
 
 interface FeatureCardProps {
   feature: Feature;
 }
 
-export default function FeatureCard({ feature }: FeatureCardProps) {
+const FeatureCard: FC<FeatureCardProps> = ({ feature }) => {
   const complexityColor =
     {
       beginner: "bg-green-100 text-green-700",
@@ -35,7 +36,9 @@ export default function FeatureCard({ feature }: FeatureCardProps) {
     <Card className="feature-card-hover cursor-pointer border border-slate-200 hover:border-blue-500/30 min-h-50">
       <CardContent className="p-4">
         <div className="flex items-start justify-between py-2">
-          <div className={`p-1 bg-${feature.color}-100 rounded-full w-7 h-7 flex items-center justify-center`}>
+          <div
+            className={`p-1 bg-${feature.color}-100 rounded-full w-7 h-7 flex items-center justify-center`}
+          >
             <i className={`${feature.icon} text-${feature.color}-600`}></i>
           </div>
           <Badge className={categoryColor} variant="secondary">
@@ -61,4 +64,6 @@ export default function FeatureCard({ feature }: FeatureCardProps) {
       </CardContent>
     </Card>
   );
-}
+};
+
+export default FeatureCard;
