@@ -7,10 +7,10 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:min-h-72">
-        <Outlet />
-      </main>
-      <Footer />
+      <div className="h-full">
+      <Outlet />
+      </div>
+      <Footer/>
     </>
   );
 };

@@ -18,9 +18,11 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <span className="mdi mdi-table text-blue-500 text-2xl" />
-              <h1 className="text-xl font-bold text-slate-900">
-                DataTable Pro
-              </h1>
+              <Link to="/">
+                <h1 className="text-xl font-bold text-slate-900">
+                  DataTable Pro
+                </h1>
+              </Link>
             </div>
             <Badge variant="outline" className="hidden sm:inline-flex">
               50+ Features
@@ -37,7 +39,9 @@ const Header: React.FC = () => {
               </Link>
             ))}
 
-            <Button variant="primary" className="bg-blue-500">Get Started</Button>
+            <Button variant="primary" className="bg-blue-500">
+              Get Started
+            </Button>
           </nav>
         </div>
       </div>
