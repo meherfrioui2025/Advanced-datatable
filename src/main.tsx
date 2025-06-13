@@ -16,6 +16,12 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
       },
+      {
+        path: "/feature/:featureId",
+        element: (
+          <h1 className="text-2xl text-amber-600">Hello Feature coming soon</h1>
+        ),
+      },
     ],
   },
   {
