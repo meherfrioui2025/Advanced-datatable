@@ -47,7 +47,6 @@ const router = createBrowserRouter([
           </Container>
         ),
       },
-      ,
       {
         path: "/features",
         element: (
