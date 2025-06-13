@@ -27,6 +27,37 @@ const router = createBrowserRouter([
           </Container>
         ),
       },
+      {
+        path: "/docs",
+        element: (
+          <Container>
+            <h1 className="text-2xl text-amber-600">
+              Documentation will coming soon
+            </h1>
+          </Container>
+        ),
+      },
+      {
+        path: "/examples",
+        element: (
+          <Container>
+            <h1 className="text-2xl text-amber-600">
+              Examples will coming soon
+            </h1>
+          </Container>
+        ),
+      },
+      ,
+      {
+        path: "/features",
+        element: (
+          <Container>
+            <h1 className="text-2xl text-amber-600">
+              Features will coming soon
+            </h1>
+          </Container>
+        ),
+      },
     ],
   },
   {
