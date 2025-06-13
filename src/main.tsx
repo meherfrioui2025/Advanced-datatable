@@ -7,6 +7,7 @@ import Layout from "./layout/layout.tsx";
 import NotFoundPage from "./pages/not-found.tsx";
 
 import "./index.css";
+import Container from "./components/container/container.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
       {
         path: "/feature/:featureId",
         element: (
-          <h1 className="text-2xl text-amber-600">Hello Feature coming soon</h1>
+          <Container>
+            <h1 className="text-2xl text-amber-600">
+              Hello Feature coming soon
+            </h1>
+          </Container>
         ),
       },
     ],
