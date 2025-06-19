@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Features from "../components/features/features";
-import Hero from "../components/hero";
-import SearchAndFilterBar from "../components/search-filter-bar";
 
-import features from "../services/features";
 import { matchesCategoryCriteria, matchesSearchCriteria } from "../lib";
+import SearchAndFilterBar from "../components/search-filter-bar";
+import Features from "../components/features/features";
+import features from "../services/features";
 import Stats from "../components/stats";
+import Hero from "../components/hero";
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -28,7 +28,7 @@ const App = () => {
           setSelectedCategory={setSelectedCategory}
         />
         <Features filteredFeatures={filteredFeatures} />
-        <Stats/>
+        <Stats />
       </main>
     </div>
   );

@@ -2,30 +2,22 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-import App from "./pages/App.tsx";
-import Layout from "./layout/layout.tsx";
+import Container from "./components/container/container.tsx";
+import FeatureDetail from "./pages/feature-detail.tsx";
+import MainLayout from "./layout/main-layout.tsx";
 import NotFoundPage from "./pages/not-found.tsx";
+import Layout from "./layout/layout.tsx";
+import App from "./pages/App.tsx";
 
 import "./index.css";
-import Container from "./components/container/container.tsx";
 
 const router = createBrowserRouter([
   {
-    element: <Layout />,
+    element: <MainLayout />,
     children: [
       {
         path: "/",
         element: <App />,
-      },
-      {
-        path: "/feature/:featureId",
-        element: (
-          <Container>
-            <h1 className="text-2xl text-amber-600">
-              Hello Feature coming soon
-            </h1>
-          </Container>
-        ),
       },
       {
         path: "/docs",
@@ -47,15 +39,14 @@ const router = createBrowserRouter([
           </Container>
         ),
       },
+    ],
+  },
+  {
+    element: <Layout />,
+    children: [
       {
-        path: "/features",
-        element: (
-          <Container>
-            <h1 className="text-2xl text-amber-600">
-              Features will coming soon
-            </h1>
-          </Container>
-        ),
+        path: "/feature/:featureId",
+        element: <FeatureDetail />,
       },
     ],
   },

@@ -1,21 +1,21 @@
 import React from "react";
 
-type BadgeVariant = "primary" | "secondary" | "danger" | "outline";
+type BadgeVariant = "primary" | "secondary" | "danger" | "outline"|"default";
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: BadgeVariant;
 }
-
 
 const variantClasses: Record<BadgeVariant, string> = {
   primary: "bg-blue-600 text-white hover:bg-blue-700",
   secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
   danger: "bg-red-600 text-white hover:bg-red-700",
   outline: "text-gray-900 border border-gray-300",
+  default:""
 };
 
 const Badge: React.FC<BadgeProps> = ({
-  variant = "primary",
+  variant = "default",
   className = "",
   ...props
 }) => {

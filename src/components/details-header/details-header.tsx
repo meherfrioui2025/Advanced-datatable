@@ -1,21 +1,31 @@
 import React from "react";
 import { Link } from "react-router";
+
+import type { Feature } from "../feature-card/feature-card";
+import Separator from "../separator";
 import Button from "../button";
 import Badge from "../badge";
-import Separator from "../separator";
-
-interface Feature {
-  category: string;
-  complexity: string;
-  categoryColor: string;
-  complexityColor: string;
-}
 
 interface DetailsHeaderProps {
   feature: Feature;
 }
 
 const DetailsHeader: React.FC<DetailsHeaderProps> = ({ feature }) => {
+  const complexityColor =
+    {
+      beginner: "bg-green-100 text-green-700",
+      intermediate: "bg-yellow-100 text-yellow-700",
+      advanced: "bg-red-100 text-red-700",
+    }[feature.complexity] || "bg-gray-100 text-gray-700";
+
+  const categoryColor =
+    {
+      data: "bg-blue-100 text-blue-700",
+      ui: "bg-purple-100 text-purple-700",
+      performance: "bg-orange-100 text-orange-700",
+      accessibility: "bg-green-100 text-green-700",
+    }[feature.category] || "bg-gray-100 text-gray-700";
+
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,19 +41,17 @@ const DetailsHeader: React.FC<DetailsHeaderProps> = ({ feature }) => {
                 <span>Back to Features</span>
               </Button>
             </Link>
-            <Separator orientation="vertical" className="h-3" />
+            <Separator orientation="vertical" />
             <div className="flex items-center space-x-2">
-              <span className="mdi mdi-table text-blue-500 text-2xl" />
+              <span className="mdi mdi-table text-2xl text-blue-600" />
               <span className="font-medium">DataTable Pro</span>
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <Badge className={feature?.categoryColor}>
-              {feature?.category}
-            </Badge>
-            <Badge className={feature?.complexityColor} variant="secondary">
-              <span className="mdi mdi-clock h-3 w-3 mr-1" />
-              {feature?.complexity}
+            <Badge className={categoryColor}>{feature.category}</Badge>
+            <Badge className={complexityColor} variant="secondary">
+              <span className={`mdi ${feature.icon}`} />
+              <span>{feature.complexity}</span>
             </Badge>
           </div>
         </div>

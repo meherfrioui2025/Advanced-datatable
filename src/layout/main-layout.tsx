@@ -1,10 +1,12 @@
 import { Outlet } from "react-router";
 
+import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
-const Layout = () => {
+const MainLayout = () => {
   return (
     <>
+      <Navbar />
       <div className="min-h-screen bg-slate-50">
         <Outlet />
       </div>
@@ -13,4 +15,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default MainLayout;
