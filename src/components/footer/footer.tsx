@@ -76,8 +76,8 @@ const Footer: FC = () => {
 
         <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
           <p>
-            &copy; 2024 DataTable Pro. Crafted for experienced developers by
-            expert developers.
+            &copy; {new Date().getFullYear()} DataTable Pro. Crafted for
+            experienced developers by expert developers.
           </p>
         </div>
       </div>
