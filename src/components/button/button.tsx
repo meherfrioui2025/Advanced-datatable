@@ -42,7 +42,7 @@ const Button: FC<ButtonProps> = ({
   children,
 }) => {
   const baseClass =
-    "inline-flex items-center justify-center gap-2 rounded transition-colors";
+    "inline-flex items-center justify-center gap-2 rounded";
   const disabledClass = disabled
     ? "opacity-50 cursor-not-allowed"
     : "cursor-pointer";
