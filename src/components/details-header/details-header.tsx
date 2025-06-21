@@ -47,7 +47,7 @@ const DetailsHeader: React.FC<DetailsHeaderProps> = ({ feature }) => {
               <span className="font-medium">DataTable Pro</span>
             </div>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-2">
             <Badge className={categoryColor}>{feature.category}</Badge>
             <Badge className={complexityColor} variant="secondary">
               <span className={`mdi ${feature.icon}`} />

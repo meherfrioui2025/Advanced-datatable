@@ -56,13 +56,14 @@ export const TabsTrigger: FC<PropsWithChildren<{ value: string }>> = ({
   );
 };
 
-export const TabsContent: FC<PropsWithChildren<{ value: string }>> = ({
+export const TabsContent: FC<PropsWithChildren<{ value: string,className:string }>> = ({
   value,
+  className,
   children,
 }) => {
   const ctx = React.useContext(TabsContext);
   if (!ctx) throw new Error("TabsContent must be used inside Tabs");
   if (ctx.value !== value) return null;
 
-  return <div className="m-1">{children}</div>;
+  return <div className={`m-1 ${className}`}>{children}</div>;
 };
