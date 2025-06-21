@@ -1,11 +1,12 @@
+import { Link, useParams } from "react-router";
+
+import { Tabs, TabsList, TabsTrigger } from "../components/tabs";
 import { Card, CardContent } from "../components/card/card";
 import DetailsHeader from "../components/details-header";
 import Container from "../components/container";
 import featuresData from "../services/features";
-import { Link, useParams } from "react-router";
 import Button from "../components/button";
 import Badge from "../components/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/tabs";
 
 const FeatureDetail = () => {
   const { featureId } = useParams<{ featureId: string }>();
@@ -46,7 +47,7 @@ const FeatureDetail = () => {
           <p className="text-gray-400">{feature.description}</p>
         </div>
         <div className="mt-8">
-          <Tabs defaultValue="example" className="space-y-6">
+          <Tabs defaultValue="example">
             <TabsList className="grid w-full grid-cols-4">
               <TabsTrigger value="example">Live Example</TabsTrigger>
               <TabsTrigger value="overview">Overview</TabsTrigger>
