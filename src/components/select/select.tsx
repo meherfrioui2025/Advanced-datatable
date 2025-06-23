@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect, type FC, type ReactNode } from "react";
+import { useState, useRef, useEffect } from "react";
+
 import Button from "../button";
 
 type Option<T> = {
@@ -14,17 +15,15 @@ type SelectProps<T> = {
   className?: string;
 };
 
-const Select: FC<SelectProps<T>> = ({
+function Select<T>({
   options,
   value,
   onChange,
   placeholder = "Select an option",
   className = "",
-}) => {
+}: SelectProps<T>) {
   const [isOpen, setIsOpen] = useState(false);
-  const [internalValue, setInternalValue] = useState<ReactNode | undefined>(
-    value
-  );
+  const [internalValue, setInternalValue] = useState<T | undefined>(value);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const selectedValue = value !== undefined ? value : internalValue;
@@ -32,7 +31,7 @@ const Select: FC<SelectProps<T>> = ({
   const selectedLabel =
     options.find((opt) => opt.value === selectedValue)?.label ?? placeholder;
 
-  const handleSelect = (val: ReactNode) => {
+  const handleSelect = (val: T) => {
     setInternalValue(val);
     onChange?.(val);
     setIsOpen(false);
@@ -52,10 +51,7 @@ const Select: FC<SelectProps<T>> = ({
   }, []);
 
   return (
-    <div
-      className={`relative w-full min-w-fit ${className}`}
-      ref={dropdownRef}
-    >
+    <div className={`relative w-full min-w-fit ${className}`} ref={dropdownRef}>
       <Button
         onClick={() => setIsOpen((prev) => !prev)}
         className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-left shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -80,6 +76,6 @@ const Select: FC<SelectProps<T>> = ({
       )}
     </div>
   );
-};
+}
 
 export default Select;
