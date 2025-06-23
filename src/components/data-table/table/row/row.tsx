@@ -6,8 +6,9 @@ import Cell from "./cell";
 interface RowProps {
   data: Array<DataTableData<ReactNode>>;
   config: Array<DataTableConfig>;
+  isLoading?: boolean;
 }
-const Row: FC<RowProps> = ({ data, config }) => {
+const Row: FC<RowProps> = ({ data, config, isLoading }) => {
   return (
     <tbody className="">
       {data.length > 0 ? (
@@ -15,7 +16,9 @@ const Row: FC<RowProps> = ({ data, config }) => {
           <Cell key={index} item={item} config={config} />
         ))
       ) : (
-        <td>No data Found!</td>
+        <tr>
+          <td>{isLoading ? "Loading" : "No data Found!"}</td>
+        </tr>
       )}
     </tbody>
   );

@@ -6,6 +6,7 @@ type ButtonVariant =
   | "danger"
   | "link"
   | "dark"
+  | "outline"
   | "none";
 type ButtonSize = "sm" | "md" | "lg";
 
@@ -24,7 +25,8 @@ const VARIANTS: Record<ButtonVariant, string> = {
   danger: "bg-red-600 text-white hover:bg-red-700",
   link: "bg-transparent text-blue-600 hover:underline",
   dark: "bg-gray-800 text-white hover:bg-gray-900",
-  none: "",
+  outline: "bg-white shadow-sm border border-gray-200",
+  none:""
 };
 
 const SIZES: Record<ButtonSize, string> = {
@@ -41,8 +43,7 @@ const Button: FC<ButtonProps> = ({
   onClick,
   children,
 }) => {
-  const baseClass =
-    "inline-flex items-center justify-center gap-2 rounded";
+  const baseClass = "inline-flex items-center justify-center gap-2 rounded";
   const disabledClass = disabled
     ? "opacity-50 cursor-not-allowed"
     : "cursor-pointer";
