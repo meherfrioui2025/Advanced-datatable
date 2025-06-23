@@ -1,8 +1,10 @@
 import { Link, useParams } from "react-router";
+import { useEffect, useState } from "react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/tabs";
 import featuresData, { featureDetails } from "../services/features";
 import DetailsHeader from "../components/details-header";
+import DataTable from "../components/data-table";
 import Container from "../components/container";
 import Button from "../components/button";
 import Badge from "../components/badge";
@@ -13,10 +15,38 @@ import {
   CardTitle,
 } from "../components/card/card";
 
+const tabs = [
+  {
+    label: "Live Example",
+    value: "example",
+  },
+  {
+    label: "Overview",
+    value: "overview",
+  },
+  {
+    label: "Implementation",
+    value: "implementation",
+  },
+  {
+    label: "Best Practices",
+    value: "best-practices",
+  },
+];
 const FeatureDetail = () => {
   const { featureId } = useParams<{ featureId: string }>();
   const feature = featuresData.find((f) => f.id === featureId);
   const details = featureDetails[featureId || ""];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const resJSON = await res.json();
+      setData(resJSON);
+    };
+    fetchData();
+  }, []);
 
   if (!feature || !details) {
     return (
@@ -58,10 +88,9 @@ const FeatureDetail = () => {
         <div className="mt-8">
           <Tabs defaultValue="example">
             <TabsList className="flex flex-col md:grid w-full md:grid-cols-4">
-              <TabsTrigger value="example">Live Example</TabsTrigger>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="implementation">Implementation</TabsTrigger>
-              <TabsTrigger value="best-practices">Best Practices</TabsTrigger>
+              {tabs.map(({ label, value }) => (
+                <TabsTrigger key={value} value={value}>{label}</TabsTrigger>
+              ))}
             </TabsList>
 
             <TabsContent value="example" className="space-y-6">
@@ -71,6 +100,26 @@ const FeatureDetail = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-center py-8">
+                    <DataTable
+                      title="List of Users"
+                      withPagination={true}
+                      withFilter
+                      config={[
+                        { label: "UserId", key: "userId", isVisible: true },
+                        { label: "Id", key: "id", isVisible: true },
+                        { label: "Title", key: "title", isVisible: true },
+                        { label: "Email", key: "title", isVisible: true },
+                        { label: "Position", key: "title", isVisible: true },
+                        { label: "Completed", key: "title", isVisible: true },
+                        {
+                          label: "Body",
+                          key: "body",
+                          isVisible: true,
+                        },
+                      ]}
+                      data={data}
+                      isLoading
+                    />
                     <p className="text-slate-600">
                       Interactive example coming soon...
                     </p>
