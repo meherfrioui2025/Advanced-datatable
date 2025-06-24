@@ -11,7 +11,7 @@ const Header: FC<HeaderProps> = ({ config }) => {
 
   return (
     <thead className="w-full">
-      <tr className="w-full">
+      <tr className="w-full bg-gray-200 text-gray-500">
         {config.length > 0 ? (
           config
             .filter((item) => Boolean(item.isVisible))

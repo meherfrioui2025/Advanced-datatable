@@ -85,7 +85,7 @@ const DataTable: FC<DataTableProps> = ({
               <span className="mdi mdi-search-web absolute left-3 top-1/2 transform -translate-y-1/2 text-md text-gray-400" />
               <Input
                 placeholder={`Search ${title} by ${config
-                  .slice(0, 5)
+                  .slice(0, 4)
                   .map((i) => i.label)
                   .join(", ")
                   .replace(/, ([^,]*)$/, " or $1")}${

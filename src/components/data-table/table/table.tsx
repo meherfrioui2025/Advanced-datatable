@@ -12,7 +12,7 @@ interface TableProps {
 
 const Table: FC<TableProps> = ({ config, data,isLoading }) => {
   return (
-    <table className="border border-gray-300 w-full">
+    <table className="border border-gray-300 table-auto w-full">
       <Header config={config} />
       <Row data={data} config={config} isLoading={isLoading} />
     </table>

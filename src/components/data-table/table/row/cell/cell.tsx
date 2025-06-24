@@ -10,7 +10,7 @@ interface CellProps {
 
 const Cell: FC<CellProps> = ({ config, item }) => {
   return (
-    <tr className="hover:bg-gray-50">
+    <tr className="hover:bg-gray-50 max-h-8 max-w-8">
       {config
         .filter((item) => item.isVisible)
         .map((conf, index) => (

@@ -1,6 +1,7 @@
 import type { FC, ReactNode } from "react";
 
 import type { DataTableConfig, DataTableData } from "../../data-table";
+import Loader from "../../../loader";
 import Cell from "./cell";
 
 interface RowProps {
@@ -17,7 +18,9 @@ const Row: FC<RowProps> = ({ data, config, isLoading }) => {
         ))
       ) : (
         <tr>
-          <td>{isLoading ? "Loading" : "No data Found!"}</td>
+          <td className="py-2 px-6">
+            {isLoading ? <Loader size="lg" /> : "No data Found!"}
+          </td>
         </tr>
       )}
     </tbody>

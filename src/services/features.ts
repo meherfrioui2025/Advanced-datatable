@@ -673,6 +673,14 @@ export const featureDetails: Record<
     overview:
       "Server-side processing enables handling massive datasets efficiently by delegating data operations to the server. This approach is essential for applications dealing with millions of records where client-side processing would be impractical. The server handles pagination, sorting, filtering, and searching, returning only the necessary data for the current view.",
   },
+  "complex-headers": {
+    overview:
+      "Advanced complex header system for datatables with multi-level hierarchical headers, grouped columns, collapsible sections, and comprehensive header management. Features drag-and-drop reordering, real-time resizing, column configuration, group management, and detailed analytics for optimal data organization and user experience.",
+  },
+  pagination: {
+    overview:
+      "Advanced pagination system with customizable page sizes, navigation controls, page jumping, and comprehensive statistics. Supports both client-side and server-side pagination with search integration and responsive design.",
+  },
 };
 
 export default featuresData;
